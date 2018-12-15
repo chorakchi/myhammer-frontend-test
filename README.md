@@ -10,18 +10,20 @@
  
  
 ___
+___
+___
 ## Countius deployment CI/CD
 
-This Angular project integrated on github repository and
-Deploed Application to Netlify
+This Angular Application integrated on github repository and
+deploed  to Netlify
 in below address : 
->### 🔗 https://myhammer.netlify.com
+>### 🔗 https://myhammer.netlify.com 
 ><img alt="React.js" src="https://flaviocopes.com/netlify/banner.png" height="40" />
 
 >Netlify is an excellent platform for building, deploying, and managing web applications. It supports automated deployment using GitHub webhooks and also provides some advanced features such as custom domains and HTTPS all for free. Deploying a Static Site to Netlify is a breeze. Although it does support running Angular JS applications, there are a couple gotchas in the deployment process that I had to wrangle together from various blog posts in order to get things to work.
 
 
-### Setup
+### 📋 Setup
 
 ```sh
     $ git clone https://github.com/chorakchi/myhammer-frontend-test.git
@@ -32,11 +34,11 @@ in below address :
     $ ng serve        
 ```
 
-### Build
+### 🏗️ Build
 
 ```sh
     # local deployment
-    $ ng bulid for            
+    $ ng bulid           
     # deploy as production
     $ ng bulid --prod  
 
@@ -45,7 +47,7 @@ in below address :
     # environment.prod.ts   
 ```
 
-### Test
+### ✔️ Test
 
 ```sh
     # run unit tests
@@ -54,7 +56,7 @@ in below address :
     $ ng e2e             
 ```
 
-# Components
+# 🗳️ Components
 
 1.
 2. 
