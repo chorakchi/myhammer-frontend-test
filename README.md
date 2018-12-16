@@ -1,4 +1,5 @@
-# 👦🔨 myhammer-frontend-test
+# 👦🔨 myhammer-frontend-test <br/> <br/>
+<br/>
 
 >##  MyHammer Frontend coding challenge 
  
@@ -10,12 +11,13 @@
  
  
 ___
-___
-___
-## Countius deployment CI/CD
+<br/>
 
-This Angular Application integrated on github repository and
-deploed  to Netlify
+
+## Counties deployment CI/CD
+
+This Angular Application integrated on GitHub repository and
+deployed  to Netlify
 in below address : 
 >### 🔗 https://myhammer.netlify.com 
 ><img alt="React.js" src="https://flaviocopes.com/netlify/banner.png" height="40" />
@@ -38,11 +40,11 @@ in below address :
 
 ```sh
     # local deployment
-    $ ng bulid           
+    $ ng build           
     # deploy as production
-    $ ng bulid --prod  
+    $ ng build --prod  
 
-    # adress of APIs set in environments > 
+    # address of APIs set in environments > 
     # environment.ts & 
     # environment.prod.ts   
 ```
@@ -56,10 +58,32 @@ in below address :
     $ ng e2e             
 ```
 
-# 🗳️ Components
+#  Components & Some of files
 
-1.
-2. 
+```sh
+├── src
+│   ├── assets
+│   │   └── jobs.json                                    # mockData Api "get list Jobs"
+│   ├── app                                              # mcomponets, test html and styls is in this directory"
+│   │   ├── app.component.ts
+│   │   ├── app.component.sass
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.html
+│   │   ├── app.module.ts
+│   │   ├── dialogOverviewDialog.component.ts
+│   │   ├── dialogOverviewDialog.component.sass
+│   │   ├── dialogOverviewDialog.component.spec.ts
+│   │   └── dialog-overview-dialog.component.html
+│   ├── environments
+│   │   ├── environments.prod.ts                          # eenvironment variable for deployment
+│   │   └── environments.ts                               # environment variable for local development"
+│   ├── main.ts
+│   ├── material-module.ts                                # all material design module imported into this file"
+│   └── index.html                                        # Main Html Page, material design CSS linked in this place               
+│   .   
+│   .
+│   .
+``` 
 
 <br/> 
 <br/> 
