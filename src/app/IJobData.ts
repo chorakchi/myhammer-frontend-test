@@ -12,5 +12,5 @@ export interface IJobData {
   thumbnail: string,
   zip_code: string,
   attachments: Array<string>,
-  counter: Array<string>
+  counter: any
 }
