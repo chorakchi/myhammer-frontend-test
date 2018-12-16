@@ -1,12 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../environments/environment';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+import { MatDialog } from '@angular/material';
+import * as moment from 'moment';
+import { DialogOverviewDialog } from './DialogOverviewDialog.component'
+import { IJobData } from './IJobData'
 
 @Component({
   selector: 'app-root',
@@ -14,45 +13,47 @@ export interface DialogData {
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'myhammer';
-  API_URL: string = environment.apiUrl;
-  jobs: any = {};
+  title: string = 'myhammer';
+  API_URL_GET_JOBS: string = environment.apiUrlGetJobs; //Api address getting jobs
+  jobs: Array<IJobData> = [];
+  // value for trigger loader with <mat-progress-bar> tag
+  loading: boolean = true
 
   constructor(private http: Http, public dialog: MatDialog) {
-    console.log("Hello Fellow User")
-    this.getContacts();
-    this.getData();
+    this.getjobs();
   }
 
-
-  getData() {
-    return this.http.get(this.API_URL).pipe(
+  //  Api call
+  getData(url) {
+    return this.http.get(url).pipe(
       map((res: Response) => res.json()))
   }
 
-  getContacts() {
-    this.getData().subscribe(data => {
-      console.log(data);
-      this.jobs = data.body.filter(data => data.state === 'active')
+  dateFormater(date: string) {
+    // customization format is mentioned in http://momentjs.com
+    // now in return, format is same Wednesday - 2018 October 31
+    return moment(date).format('dddd - YYYY MMMM DD');
+  }
+  //
+  getjobs() {
+    this.getData(this.API_URL_GET_JOBS).subscribe(data => {
+      this.loading = false; //triggering loader
+
+      //filter job state is active maping for change date format
+      this.jobs = data.body.filter(data => data.state === 'active').map(item => ({
+        ...item,
+        created_at: this.dateFormater(item.created_at),
+        end_date: this.dateFormater(item.end_date),
+      }))
     })
   }
 
-
-  openDialog(data: any) {
-    console.log(data)
+  //handler for open Dialog detail of job, prop data object of the selected job from the list
+  openDialog(data: IJobData) {
     this.dialog.open(DialogOverviewDialog, {
       height: '90%',
       width: '99%',
       data: data
     });
   }
-}
-
-@Component({
-  selector: 'dialog-overview-dialog',
-  templateUrl: 'dialog-overview-dialog.html',
-  styleUrls: ['./dialogOverviewDialog.component.sass']
-})
-export class DialogOverviewDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 }
