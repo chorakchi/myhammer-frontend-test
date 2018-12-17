@@ -13,7 +13,7 @@ import { IJobData } from './IJobData'
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title: string = 'myhammer';
+  title: string = 'Myhammer';
   API_URL_GET_JOBS: string = environment.apiUrlGetJobs; //Api address getting jobs
   jobs: Array<IJobData> = [];
   // value for trigger loader with <mat-progress-bar> tag
@@ -32,7 +32,7 @@ export class AppComponent {
   dateFormater(date: string) {
     // customization format is mentioned in http://momentjs.com
     // now in return, format is same Wednesday - 2018 October 31
-    return moment(date).format('dddd - YYYY MMMM DD');
+    return moment(date).locale('de').format('dddd DD. MMMM YYYY');
   }
   //
   getjobs() {

@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <h1>
-    Welcome to {{ title }}!
+    Willkommen bei {{ title }}!
   </h1>
 </mat-toolbar>
 <mat-progress-bar mode="buffer" [ngStyle]="{'display': loading ? 'block' : 'none' }" mode="indeterminate"></mat-progress-bar>
@@ -13,7 +13,7 @@
         </div>
         <mat-card-title>{{job.title}}</mat-card-title>
         <mat-card-subtitle>{{job.city}}</mat-card-subtitle>
-        <mat-card-subtitle>This job avalable for apply from {{job.created_at}} to {{job.end_date}}</mat-card-subtitle>
+        <mat-card-subtitle>Diese Stelle ist für den Zeitraum vom {{job.created_at}} zum {{job.end_date}} gültig</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <br />

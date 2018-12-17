@@ -30,7 +30,7 @@ describe('AppComponent', () => {
   it(`should have as title 'myhammer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('myhammer');
+    expect(app.title).toEqual('Myhammer');
   });
 
   it(`should have a jobs Object`, () => {
@@ -54,6 +54,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to myhammer!');
+    expect(compiled.querySelector('h1').textContent).toContain('Willkommen bei Myhammer!');
   });
 });

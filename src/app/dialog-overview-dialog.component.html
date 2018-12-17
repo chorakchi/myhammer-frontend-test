@@ -13,30 +13,30 @@
 <mat-dialog-content>
     <mat-card-subtitle>{{data.city}}</mat-card-subtitle>
     <mat-card-subtitle>
-        This job avalable for apply from {{data.created_at}} to {{data.end_date}}
+        Diese Stelle ist für den Zeitraum vom {{data.created_at}} zum {{data.end_date}} gültig
     </mat-card-subtitle>
 
     <div class="conent">
         {{data.description}}
     </div>
     <div class="conent">
-        zep code: {{data.zip_code}}
+        Zep-Code: {{data.zip_code}}
     </div>
 
     <mat-divider></mat-divider>
 
-    <div class="title">attachments:</div>
+    <div class="title">Befestigung:</div>
     <ng-container *ngFor="let attachment of data.attachments">
         <mat-chip color="accent" class="mat-chip-clickable" (click)="openAttachment('http:'+attachment)">
             <mat-icon>attachment</mat-icon>
-            image file
+            Bilddatei
         </mat-chip>
     </ng-container>
     <mat-divider></mat-divider>
     <mat-chip-list>
-        <div class="title">tags:</div>
+        <div class="title">Stichworte:</div>
         <mat-chip>{{data.state}}</mat-chip>
-        <mat-chip>{{data.counter.messages_unread}} New Message unread from{{data.counter.messages_total}}</mat-chip>
+        <mat-chip>{{data.counter.messages_unread}} Neue Nachricht ungelesen von {{data.counter.messages_total}}</mat-chip>
 
 
     </mat-chip-list>
